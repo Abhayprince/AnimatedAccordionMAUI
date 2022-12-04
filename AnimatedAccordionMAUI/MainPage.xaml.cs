@@ -28,6 +28,12 @@ public partial class MainPage : ContentPage
             _width = items.Width;
         }
 
+        if (DeviceInfo.Current.Platform == DevicePlatform.iOS && _height <= 0)
+        {
+            _height = items.Height;
+            _width = items.Width;
+        }
+
         var animation = new Animation(delta =>
 		{
 			if (!_collapsed) //Collapsing
